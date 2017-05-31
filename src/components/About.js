@@ -8,7 +8,7 @@ class About extends Component {
           <h2>About!</h2>
         </div>
         <p className="App-intro">
-          Hannah's Create-React-App & Node.js starter files.
+          Hannah's Create-React-App & Node.js starter files!!!!
         </p>
       </div>
     );

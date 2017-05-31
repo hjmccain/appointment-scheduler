@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Login from './Login';
 import './App.css';
 
 class App extends Component {
@@ -11,6 +12,7 @@ class App extends Component {
         <p className="App-intro">
           Hannah's Create-React-App & Node.js starter files.
         </p>
+        <Login />
       </div>
     );
   }

@@ -9,7 +9,7 @@ const runServer = () => {
   return new Promise((resolve, reject) => {
     app.listen(PORT, HOST, (err) => {
       if (err) { console.error(err) && reject(err) }
-      console.log(`App listening on ${HOST || 'localhost'}:${PORT}!`);
+      console.log(`App listening on ${HOST || 'localhost'}:${PORT}!!!!!!!!`);
     });
   })
 }

@@ -1,9 +1,9 @@
 const express = require('express');
 const path = require('path');
-const GoogleStrategy = require('passport-google-oauth20');
+const GoogleStrategy = require('passport-google-oauth20').Strategy;
 const passport = require('passport');
 const dotenv = require('dotenv');
-let currentUser;
+let currentUser = "Hannah";
 
 const useOrUpdate = (id) => {
   if (id !== currentUser) { currentUser = id };
@@ -11,8 +11,8 @@ const useOrUpdate = (id) => {
 }
 
 passport.use(new GoogleStrategy({
-    clientID: CLIENT_ID,
-    clientSecret: CLIENT_SECRET,
+    clientID: "135740859520-ptces7fkphlrnqfl3rtsq8jbke0bfgu1.apps.googleusercontent.com",
+    clientSecret: "Dw-flOmzT24ZTpf7oR4vNJsh",
     callbackURL: "http://localhost:8080/auth/google/callback"
   },
   function(accessToken, refreshToken, profile, cb) {
@@ -26,6 +26,18 @@ passport.use(new GoogleStrategy({
 ));
 
 const app = express();
+
+app.get('/auth/google',
+  passport.authenticate('google',
+  { scope: ['https://www.googleapis.com/auth/calendar.readonly'] })
+);
+
+app.get('/auth/google/callback',
+  passport.authenticate('google', { failureRedirect: '/', session: false }),
+  function(req, res) {
+    res.redirect('/');
+  });
+
 
 app.use(express.static(path.resolve(__dirname, '..', 'build')));
 
