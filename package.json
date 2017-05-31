@@ -4,8 +4,11 @@
   "private": true,
   "proxy": "http://localhost:8080",
   "dependencies": {
+    "dotenv": "^2.0.0",
     "logger": "^0.0.1",
     "moment": "^2.18.1",
+    "passport": "^0.3.2",
+    "passport-google-oauth20": "^1.0.0",
     "react": "^15.5.4",
     "react-dom": "^15.5.4",
     "react-redux": "^5.0.4",
